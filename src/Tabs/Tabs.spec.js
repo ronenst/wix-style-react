@@ -7,10 +7,13 @@ import Tabs from './Tabs';
 import {tabsTestkitFactory} from '../../testkit';
 import {tabsTestkitFactory as enzymeTabsTestkitFactory} from '../../testkit/enzyme';
 
-describe('Tabs component', () => {
+describe.only('Tabs component', () => {
   let items;
+  let sideContent;
+
   beforeEach(() => {
     items = [{id: 0, title: 'Tab 0'}, {id: 1, title: 'Tab 1'}, {id: 2, title: 'Tab 2'}];
+    sideContent = <div>Click <a>here</a>!</div>;
   });
 
   it('should render tabs with correct titles', () => {
@@ -47,7 +50,7 @@ describe('Tabs component', () => {
   it('should get custom style', () => {
     const type = 'compact';
     const driver = createComponent({items, type});
-    expect(driver.isOfType('compact')).toBeTruthy();
+    expect(driver.getItemsContainerClassList().contains('compact')).toBeTruthy();
   });
 
   it('should have divider by default', () => {
@@ -60,11 +63,21 @@ describe('Tabs component', () => {
     expect(driver.hasDivider()).toBeFalsy();
   });
 
-  it('should set tab widt, when selected type is Uniform Side', () => {
+  it('should set tab width, when selected type is Uniform Side', () => {
     const width = '100px';
     const driver = createComponent({items, width, type: 'uniformSide'});
-    expect(driver.getTabsWidth().size).toBe(1);
-    expect(driver.getTabsWidth().has(width)).toBeTruthy();
+    expect(driver.getItemsWidth().size).toBe(1);
+    expect(driver.getItemsWidth().has(width)).toBeTruthy();
+  });
+
+  it('should show side content if defined via props', () => {
+    const driver = createComponent({items, sideContent});
+    expect(driver.getSideContent()).toBeTruthy();
+  });
+
+  it('does not show side content if it is not passed via props', () => {
+    const driver = createComponent({items});
+    expect(driver.getSideContent()).toBeFalsy();
   });
 
   const createDriver = createDriverFactory(tabsDriverFactory);

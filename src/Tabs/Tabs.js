@@ -5,33 +5,51 @@ import WixComponent from '../BaseComponents/WixComponent';
 import styles from './Tabs.scss';
 
 class Tabs extends WixComponent {
+
+  renderItem(item) {
+    const {onClick, width, activeId, type} = this.props;
+
+    const className = classNames(styles.tab, {
+      [styles.active]: item.id === activeId,
+    });
+
+    const style = type === 'uniformSide' ? { width } : {};
+
+    return (
+      <li key={item.id} onClick={() => onClick(item)} className={className} style={style}>
+        {item.title}
+      </li>
+    );
+  }
+
+  renderItems() {
+    const {items, type} = this.props;
+    const className = classNames(styles.itemsContainer, styles[type]);
+    return <ul className={className}>{items.map(i => this.renderItem(i))}</ul>;
+  }
+
+  renderSideContent() {
+    const {sideContent} = this.props;
+    return sideContent && <div className={styles.sideContent}>{sideContent}</div>;
+  }
+
   render() {
-    const {items, onClick, activeId, type, hasDivider, width} = this.props;
-    const style = {};
-    const tabs = items.map(item => {
-      const className = classNames(styles.tab, {
-        [styles.active]: item.id === activeId
-      });
+    const {hasDivider} = this.props;
 
-      if (type === 'uniformSide') {
-        style.width = width;
-      }
-
-      return (
-        <li key={item.id} onClick={() => onClick(item)} className={className} style={style}>
-          {item.title}
-        </li>
-      );
-    });
-    const className = classNames(styles[type], styles.container, {
-      [styles.hasDivider]: hasDivider
+    const className = classNames(styles.container, {
+      [styles.hasDivider]: hasDivider,
     });
 
-    return <ul className={className}>{tabs}</ul>;
+    return (
+      <div className={className}>
+        {this.renderItems()}
+        {this.renderSideContent()}
+      </div>
+    );
   }
 }
 
-Tabs.tabTypes = ['compact', 'uniformSide', 'uniformFull'];
+Tabs.tabTypes = ['compact', 'compactSide', 'uniformSide', 'uniformFull'];
 
 Tabs.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
@@ -51,11 +69,12 @@ Tabs.propTypes = {
   ]),
   type: PropTypes.oneOf(Tabs.tabTypes),
   hasDivider: PropTypes.bool,
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  sideContent: PropTypes.node,
 };
 
 Tabs.defaultProps = {
-  hasDivider: true
+  hasDivider: true,
 };
 
 export default Tabs;

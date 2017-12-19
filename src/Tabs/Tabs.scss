@@ -5,14 +5,30 @@
   @extend .t1;
   display: flex;
   max-width: 100%;
-  margin: 0;
-  padding: 0;
+
   border-bottom: 1px solid transparent;
-  list-style: none;
 
   &.hasDivider {
     border-color: $D60;
   }
+}
+
+.itemsContainer {
+  min-width: 628pt;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sideContent {
+  max-width: 314pt;
+  overflow: hidden;
+  margin-left: 24px;
+  margin-right: 48px;
+  flex-shrink: 0;
 }
 
 .tab {
@@ -31,6 +47,10 @@
     padding-left: 0;
     margin-right: 30px;
     margin-left: 30px;
+  }
+
+  .compactSide & {
+    // TODO: implement
   }
 
   .uniformFull & {

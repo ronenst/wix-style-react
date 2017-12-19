@@ -27,6 +27,7 @@ class TabsExample extends Component {
               >
               <RadioGroup.Radio value="">Default</RadioGroup.Radio>
               <RadioGroup.Radio value="compact">Compact</RadioGroup.Radio>
+              <RadioGroup.Radio value="compactSide">Compact (Side)</RadioGroup.Radio>
               <RadioGroup.Radio value="uniformSide">Uniform (Side)</RadioGroup.Radio>
               <RadioGroup.Radio value="uniformFull">Uniform (Full)</RadioGroup.Radio>
             </RadioGroup>
