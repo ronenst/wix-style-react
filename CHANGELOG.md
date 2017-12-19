@@ -2,6 +2,11 @@
 
 All notable changes are documented in this file.
 
+## 1.2.9 - 2017-12-18
+### Fixed
+- fixed import of icon in StatsWidget [1272](https://github.com/wix/wix-style-react/pull/1272)
+- revert use `wix-ui-backoffice/ToggleSwitch` [1242](https://github.com/wix/wix-style-react/pull/1242) due to missing RTL support
+
 ## 1.2.8 - 2017-12-17
 ### Fixed
 - use actual source of Story & AutoExample [1268](https://github.com/wix/wix-style-react/pull/1268)
@@ -13,7 +18,7 @@ All notable changes are documented in this file.
 - `Page` - Added docs [1265](https://github.com/wix/wix-style-react/pull/1265)
 
 ### Changed
-- `ToggleSwitch` - use `wix-ui-backoffice/ToggleSwitch` [1242]( https://github.com/wix/wix-style-react/pull/1242 )
+- `ToggleSwitch` - use `wix-ui-backoffice/ToggleSwitch` [1242](https://github.com/wix/wix-style-react/pull/1242)
 
 ## 1.2.7 - 2017-12-13
 ### Fixed
