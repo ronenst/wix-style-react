@@ -10,6 +10,7 @@ Types of changes:
 1. **Removed** for now removed features.
 1. **Fixed** for any bug fixes.
 1. **Security** in case of vulnerabilities.
+1. **Breaking** for breaking changes
 
 ## 1.2.12 - 2017-12-24
 
@@ -19,6 +20,19 @@ Types of changes:
 ### Changed
 - `<Page/>` - Added height recalculation when inner height changes [1289](https://github.com/wix/wix-style-react/pull/1289)
 
+
+## 2.0.0 - 2017-12-24
+
+### Breaking
+- `<Grid/>`- Col component defaultProp span is now 12. Might prevent default -15px padding to the left, so should be treated as a breaking change. [1279](https://github.com/wix/wix-style-react/pull/1279)
+- `<ModalSelectorLayout/>` - new component, replaces `<ModalSelector>`. Should be used in conjunction with `<Modal/>` [1294](https://github.com/wix/wix-style-react/pull/1294)
+
+### Changed
+- `Grid`- Rename `Row` component to `Columns`, and `AutoAdjustedRow` to `AutoAdjustedColumns` [1279](https://github.com/wix/wix-style-react/pull/1279)
+
+### Fixed
+- `Page Header` - Update Header scrol treshold size [1289](https://github.com/wix/wix-style-react/pull/1289)
+- `MultiSelect` - Allow to write any text as tag when options are empty [1292](https://github.com/wix/wix-style-react/pull/1292)
 
 ## 1.2.11 - 2017-12-21
 ### Added
