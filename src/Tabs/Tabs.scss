@@ -5,7 +5,6 @@
   @extend .t1;
   display: flex;
   max-width: 100%;
-
   border-bottom: 1px solid transparent;
 
   &.hasDivider {
@@ -23,19 +22,11 @@
   list-style: none;
 }
 
-.sideContent {
-  max-width: 314pt;
-  overflow: hidden;
-  margin-left: 24px;
-  margin-right: 48px;
-  flex-shrink: 0;
-}
-
 .tab {
   position: relative;
   padding: 18px 18px 16px;
   margin: 0 0 -1px;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
   white-space: nowrap;
   text-align: center;
   overflow: hidden;
@@ -43,18 +34,33 @@
   cursor: pointer;
 
   .compact & {
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: 30px;
-    margin-left: 30px;
-  }
+    $side-padding: 0;
+    padding-right: $side-padding;
+    padding-left: $side-padding;
 
-  .compactSide & {
-    // TODO: implement
+    $side-margin: 30px;
+    margin-right: $side-margin;
+    margin-left: $side-margin;
   }
 
   .uniformFull & {
     flex: 1;
+  }
+
+  .compactSide & {
+    $side-padding: 0;
+    padding-left: $side-padding;
+    padding-right: $side-padding;
+
+    $side-margin: 18pt;
+
+    &:not(:first-child) {
+      margin-left: $side-margin;
+    }
+
+    &:not(:last-child) {
+      margin-right: $side-margin;
+    }
   }
 
   &:hover {
@@ -65,4 +71,11 @@
 .active {
   @extend .t1_3;
   border-color: $B10;
+}
+
+.sideContent {
+  max-width: 314pt;
+  overflow: hidden;
+  margin-left: 24px;
+  flex-shrink: 0;
 }

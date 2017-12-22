@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import Tabs from '../../src/Tabs';
 
-const items = [{id: 1, title: 'First item'}, {id: 2, title: 'Second item'}, {id: 3, title: 'Third item'}];
+const items = [
+  {id: 1, title: 'First Item'},
+  {id: 2, title: 'Second Item'},
+  {id: 3, title: 'Third Item'},
+  {id: 4, title: 'Fourth item'},
+  {id: 6, title: 'Fifth item'},
+  {id: 7, title: 'Sixth item'},
+  {id: 8, title: 'A very long tab item that may not fit'}
+];
 
 class TabsTemplate extends Component {
   state = {
@@ -20,7 +28,7 @@ class TabsTemplate extends Component {
 
   getComponent() {
     const {activeId} = this.state;
-    const {type, hasDivider, width} = this.props;
+    const {type, hasDivider, width, sideContent} = this.props;
     const props = {items, activeId, hasDivider};
 
     if (type) {
@@ -31,7 +39,14 @@ class TabsTemplate extends Component {
       props.width = width;
     }
 
-    return <Tabs onClick={({id}) => this.setState({activeId: id})} {...props}/>;
+    return (
+      <Tabs
+        sideContent={sideContent}
+        onClick={item => this.setState({activeId: item.id})}
+        dataHook="story-tabs"
+        {...props}
+        />
+    );
   }
 
   render() {
@@ -43,7 +58,8 @@ TabsTemplate.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.oneOf(Tabs.tabTypes),
   hasDivider: PropTypes.bool,
-  width: PropTypes.string
+  width: PropTypes.string,
+  sideContent: PropTypes.node
 };
 
 function getExampleCode(element) {

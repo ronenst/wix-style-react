@@ -12,16 +12,17 @@
   ],
   "scripts": {
     "start": "./scripts/npm-start.sh",
-    "pretest": "haste lint && ./scripts/ensure-dist.sh",
+    "pretest": "npm run lint && ./scripts/ensure-dist.sh",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "haste test --jest",
     "pretest:e2e": "./scripts/ensure-dist.sh",
     "test:e2e": "concurrently 'npm run test:e2e-only' 'node scripts/e2e-server.js' --names 'protractor,e2e-server' --success first --kill-others",
     "test:e2e-only": "NODE_ENV=production haste test --protractor",
-    "build": "haste lint && svg2react-icon && haste build && build-storybook && npm run export-components",
+    "build": "npm run lint && svg2react-icon && haste build && build-storybook && npm run export-components",
     "storybook": "start-storybook -p 6006",
     "release": "node scripts/npm-release.js",
-    "export-components": "import-path --path src"
+    "export-components": "import-path --path src",
+    "lint": "haste lint"
   },
   "yoshi": {
     "features": {

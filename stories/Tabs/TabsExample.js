@@ -4,14 +4,24 @@ import RadioGroup from '../../src/RadioGroup';
 import Label from '../../src/Label';
 import Input from '../../src/Input';
 import TabsTemplate from './TabsTemplate';
+import Button from '../../src/Button';
 import styles from './TabsExample.scss';
 import TextField from '../../src/TextField';
+
+
+const SideContentExample = () => (
+  <div className={styles.sideContentExample}>
+    <Button theme="whiteblue">Cancel</Button>
+    <Button>Save</Button>
+  </div>
+);
 
 class TabsExample extends Component {
   state = {
     type: '',
     hasDivider: true,
-    width: 30
+    width: 30,
+    showSideContent: false
   };
 
   render() {
@@ -86,18 +96,33 @@ class TabsExample extends Component {
             </RadioGroup>
           </div>
         </div>
+        <div className={styles.controlGroup}>
+          <Label>Side Content</Label>
+          <div className={styles.radioGroup}>
+            <RadioGroup
+              display="horizontal"
+              value={this.state.showSideContent}
+              onChange={showSideContent => this.setState({showSideContent})}
+              >
+              <RadioGroup.Radio value={false}>None</RadioGroup.Radio>
+              <RadioGroup.Radio value>Buttons</RadioGroup.Radio>
+            </RadioGroup>
+          </div>
+        </div>
         <div className={styles.preview}>
           <TabsTemplate
             onChange={this.props.onChange}
             type={this.state.type}
             hasDivider={this.state.hasDivider}
             width={this.state.width}
+            sideContent={this.state.showSideContent ? <SideContentExample/> : undefined}
             />
         </div>
       </div>
     );
   }
 }
+
 
 TabsExample.propTypes = {
   onChange: PropTypes.func

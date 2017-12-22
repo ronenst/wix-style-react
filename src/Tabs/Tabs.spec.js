@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactTestUtils from 'react-dom/test-utils';
 import {mount} from 'enzyme';
+
 import {createDriverFactory} from '../test-common';
 import tabsDriverFactory from './Tabs.driver';
 import Tabs from './Tabs';
 import {tabsTestkitFactory} from '../../testkit';
 import {tabsTestkitFactory as enzymeTabsTestkitFactory} from '../../testkit/enzyme';
 
-describe.only('Tabs component', () => {
+
+describe('Tabs component', () => {
+
+
+  const createDriver = createDriverFactory(tabsDriverFactory);
   let items;
-  let sideContent;
 
   beforeEach(() => {
     items = [{id: 0, title: 'Tab 0'}, {id: 1, title: 'Tab 1'}, {id: 2, title: 'Tab 2'}];
-    sideContent = <div>Click <a>here</a>!</div>;
   });
 
   it('should render tabs with correct titles', () => {
@@ -53,16 +56,6 @@ describe.only('Tabs component', () => {
     expect(driver.getItemsContainerClassList().contains('compact')).toBeTruthy();
   });
 
-  it('should have divider by default', () => {
-    const driver = createComponent({items});
-    expect(driver.hasDivider()).toBeTruthy();
-  });
-
-  it('should not have divider if props.divider is falsy', () => {
-    const driver = createComponent({items, hasDivider: false});
-    expect(driver.hasDivider()).toBeFalsy();
-  });
-
   it('should set tab width, when selected type is Uniform Side', () => {
     const width = '100px';
     const driver = createComponent({items, width, type: 'uniformSide'});
@@ -71,6 +64,7 @@ describe.only('Tabs component', () => {
   });
 
   it('should show side content if defined via props', () => {
+    const sideContent = <div>Click <a>here</a>!</div>;
     const driver = createComponent({items, sideContent});
     expect(driver.getSideContent()).toBeTruthy();
   });
@@ -79,11 +73,6 @@ describe.only('Tabs component', () => {
     const driver = createComponent({items});
     expect(driver.getSideContent()).toBeFalsy();
   });
-
-  const createDriver = createDriverFactory(tabsDriverFactory);
-  function createComponent(props) {
-    return createDriver(<Tabs {...props}/>);
-  }
 
   describe('testkit', () => {
     it('should exist', () => {
@@ -105,4 +94,9 @@ describe.only('Tabs component', () => {
       expect(breadcrumbsTestkit.exists()).toBeTruthy();
     });
   });
+
+  function createComponent(props) {
+    return createDriver(<Tabs {...props}/>);
+  }
+
 });

@@ -113,3 +113,6 @@ export const statsWidgetTestkitFactory = protractorTestkitFactoryCreator(statsWi
 
 import loaderDriverFactory from '../src/Loader/Loader.protractor.driver';
 export const loaderTestkitFactory = protractorTestkitFactoryCreator(loaderDriverFactory);
+
+import tabsDriverFactory from '../src/Tabs/Tabs.protractor.driver';
+export const tabsTestkitFactory = protractorTestkitFactoryCreator(tabsDriverFactory);
