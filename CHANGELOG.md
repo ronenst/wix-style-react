@@ -2,6 +2,33 @@
 
 All notable changes are documented in this file.
 
+Types of changes:
+
+1. **Added** for new features.
+1. **Changed** for changes in existing functionality.
+1. **Deprecated** for soon-to-be removed features.
+1. **Removed** for now removed features.
+1. **Fixed** for any bug fixes.
+1. **Security** in case of vulnerabilities.
+
+
+## 1.2.11 - 2017-12-21
+### Added
+- `<MessageBox/>` - Add footerContent props to MessageBox to allow adding footer to the message box [1269](https://github.com/wix/wix-style-react/pull/1269)
+- `<Icon.Time/>` - new time icon [1285](https://github.com/wix/wix-style-react/pull/1285)
+
+### Fixed
+- `<Notification/>` - fix close button alignment [f59bec356](https://github.com/wix/wix-style-react/commit/f59bec3560f210e189a792820f600843a445e68d)
+- `<Card/>` - add more clear docs [1284](https://github.com/wix/wix-style-react/pull/1284)
+- `<Page/>` - Added height for title to avoid height calculation errors [1287](https://github.com/wix/wix-style-react/pull/1287)
+
+
+## 1.2.10 - 2017-12-20
+### Fixed
+- fix css name collision between tooltip and button [1276](https://github.com/wix/wix-style-react/pull/1276)
+- Add background color to page header [1277](https://github.com/wix/wix-style-react/pull/1277)
+- PageHeader: update propTypes for title and subtitle [1282](https://github.com/wix/wix-style-react/pull/1282)
+
 ## 1.2.9 - 2017-12-18
 ### Fixed
 - fixed import of icon in StatsWidget [1272](https://github.com/wix/wix-style-react/pull/1272)
