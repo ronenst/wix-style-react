@@ -160,9 +160,9 @@ Types of changes:
 - `<Tooltip>` - Remove deprecated tooltip [1179](https://github.com/wix/wix-style-react/pull/1179)
 
 ### Fixed
-- `<ToggleSwith>` - disable the toggle on disable mode[1174](https://github.com/wix/wix-style-react/pull/1174)
+- `<ToggleSwitch>` - disable the toggle on disable mode[1174](https://github.com/wix/wix-style-react/pull/1174)
 - storybook e2e
-- `<InputWithOption>` - Solved saffari issue: [387](https://github.com/wix/wix-style-react/issues/387) 
+- `<InputWithOption>` - Solved saffari issue: [387](https://github.com/wix/wix-style-react/issues/387)
 - `<Tooltip>` - Remove setTimeout [1177](https://github.com/wix/wix-style-react/pull/1177)
 - Terminal was cleaned from all warning printouts - [1185](https://github.com/wix/wix-style-react/pull/1185)
 
