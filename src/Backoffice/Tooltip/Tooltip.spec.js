@@ -6,7 +6,7 @@ import {createDriverFactory} from '../../test-common';
 import {buttonTestkitFactory, backofficeTooltipTestkitFactory as tooltipTestkitFactory} from '../../../testkit';
 import {backofficeTooltipTestkitFactory as enzymeTooltipTestkitFactory} from '../../../testkit/enzyme';
 import {mount} from 'enzyme';
-import {Button} from '../../../src/Backoffice';
+import Button from '../Button';
 import waitForCond from 'wait-for-cond';
 import './RangePolyfill.js';
 

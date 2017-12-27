@@ -7,7 +7,7 @@ import {createDriverFactory} from '../test-common';
 import {buttonTestkitFactory, tooltipTestkitFactory} from '../../testkit';
 import {tooltipTestkitFactory as enzymeTooltipTestkitFactory} from '../../testkit/enzyme';
 import {mount} from 'enzyme';
-import {Button} from '../../src/Backoffice';
+import Button from '../../src/Button';
 
 describe('Tooltip', () => {
 
