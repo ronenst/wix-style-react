@@ -53,7 +53,7 @@ describe('multiSelect', () => {
     expect(dropdownLayoutDriver.optionsLength()).toBe(options.length);
   });
 
-  it('should not loose Focus or close the list on selection with a mouse click', () => {
+  it('should not lose Focus or close the list on selection with a mouse click', () => {
     const {driver, inputDriver, dropdownLayoutDriver} = createDriver(<MultiSelect options={options}/>);
     driver.focus();
     dropdownLayoutDriver.clickAtOption(0);
@@ -61,7 +61,7 @@ describe('multiSelect', () => {
     expect(inputDriver.isFocus());
   });
 
-  it('should not loose Focus or close the list on selection with enter press', () => {
+  it('should not lose Focus or close the list on selection with enter press', () => {
     const {driver, inputDriver, dropdownLayoutDriver} = createDriver(<MultiSelect options={options}/>);
     driver.focus();
     driver.pressDownKey();
@@ -70,7 +70,7 @@ describe('multiSelect', () => {
     expect(inputDriver.isFocus()).toBeTruthy();
   });
 
-  it('should not loose Focus or close the list on selection with tab press', () => {
+  it('should not lose Focus or close the list on selection with tab press', () => {
     const onSelect = jest.fn();
     const {driver, inputDriver, dropdownLayoutDriver} = createDriver(<MultiSelect options={options} onSelect={onSelect}/>);
     driver.focus();
@@ -81,7 +81,7 @@ describe('multiSelect', () => {
     expect(inputDriver.isFocus()).toBeTruthy();
   });
 
-  it('should not loose Focus or close the list on selection with comma press', () => {
+  it('should not lose Focus or close the list on selection with comma press', () => {
     const onSelect = jest.fn();
     const onChange = jest.fn();
     const {driver, inputDriver, dropdownLayoutDriver} = createDriver(
