@@ -192,10 +192,11 @@ describe('multiSelect', () => {
     inputDriver.trigger('paste');
     inputDriver.enterText(`${options[0].value}, Arkansa`);
     expect(onChange).toBeCalledWith({target: {value: ''}});
-    expect(onSelect).toBeCalledWith([
-      {id: options[0].id, label: options[0].value},
-      {id: 'customOption_1', label: 'Arkansa', theme: 'error'}
-    ]);
+    const onSelectCallArgs = onSelect.mock.calls[0][0];
+    expect(onSelectCallArgs[0]).toEqual({id: options[0].id, label: options[0].value});
+    expect(onSelectCallArgs[1].label).toEqual('Arkansa');
+    expect(onSelectCallArgs[1].theme).toEqual('error');
+    expect(onSelectCallArgs[1].id.startsWith('customOption_')).toEqual(true);
   });
 
   it('should call onManuallyInput after delimiter is pressed and input is not empty', () => {
