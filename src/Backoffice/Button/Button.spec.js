@@ -6,7 +6,7 @@ import {createDriverFactory} from '../../test-common';
 import {buttonTestkitFactory} from '../../../testkit';
 import {buttonTestkitFactory as enzymeButtonTestkitFactory} from '../../../testkit/enzyme';
 import {mount} from 'enzyme';
-import {Close} from '../../Icons/dist';
+import {Add} from '../../Icons';
 
 describe('Button', () => {
   const createDriver = createDriverFactory(buttonDriverFactory);
@@ -41,14 +41,14 @@ describe('Button', () => {
   });
 
   it('should have a prefixIcon', () => {
-    const driver = createDriver(<Button prefixIcon={<Close/>}/>);
+    const driver = createDriver(<Button prefixIcon={<Add/>}/>);
 
     expect(driver.isSuffixIconExists()).toBeFalsy();
     expect(driver.isPrefixIconExists()).toBeTruthy();
   });
 
   it('should have a suffixIcon', () => {
-    const driver = createDriver(<Button suffixIcon={<Close/>}/>);
+    const driver = createDriver(<Button suffixIcon={<Add/>}/>);
 
     expect(driver.isPrefixIconExists()).toBeFalsy();
     expect(driver.isSuffixIconExists()).toBeTruthy();
