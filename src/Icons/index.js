@@ -1,1 +1,1 @@
-export * from './dist';
+export * from 'wix-ui-icons';

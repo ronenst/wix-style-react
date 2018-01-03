@@ -7,7 +7,6 @@ if ! test -d dist; then
   echo ""
 
   npm run build
-  svg2react-icon-once
 fi
 
 exit 0

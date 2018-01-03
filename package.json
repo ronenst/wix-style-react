@@ -18,7 +18,7 @@
     "pretest:e2e": "./scripts/ensure-dist.sh",
     "test:e2e": "concurrently 'npm run test:e2e-only' 'node scripts/e2e-server.js' --names 'protractor,e2e-server' --success first --kill-others",
     "test:e2e-only": "NODE_ENV=production haste test --protractor",
-    "build": "haste lint && svg2react-icon && haste build && build-storybook && npm run export-components",
+    "build": "haste lint && haste build && build-storybook && npm run export-components",
     "storybook": "start-storybook -p 6006",
     "release": "node scripts/npm-release.js",
     "export-components": "import-path --path src"
@@ -81,7 +81,6 @@
     "regenerator-runtime": "^0.11.0",
     "semver": "^5.4.1",
     "sinon": "^1.17.6",
-    "svg2react-icon": "^1.0.0",
     "wait-for-cond": "^1.0.3",
     "wix-storybook-utils": "latest"
   },
