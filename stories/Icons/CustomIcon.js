@@ -1,5 +1,5 @@
 import React from 'react';
-import {Duplicate2} from 'wix-style-react/Icons';
+import {Duplicate} from 'wix-style-react/Icons';
 import s from './style.scss';
 
 export default () => {
@@ -10,8 +10,8 @@ export default () => {
   return (
     <div className={s.iconList}>
       <div className={s.singleIconView}>
-        <span style={style}><Duplicate2 size="3em"/></span>
-        <span className={s.iconName}>Duplicate2 (size x 3, red)</span>
+        <span style={style}><Duplicate size="3em"/></span>
+        <span className={s.iconName}>Duplicate (size x 3, red)</span>
       </div>
     </div>
   );
