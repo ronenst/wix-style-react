@@ -10,6 +10,7 @@
 
 ## Setup
 
+
 * Install with `npm` or `yarn`:
 ```sh
 npm i wix-style-react
